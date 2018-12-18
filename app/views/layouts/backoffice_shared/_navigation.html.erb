@@ -51,7 +51,12 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <%= link_to backoffice_path do %>
+                        <i class="fa fa-dashboard fa-fw"></i> Dashboard
+                    <%end%>
+                    <%= link_to backoffice_categories_index_path do%>
+                        <i class="fa fa-list fa-fw"></i> Categories
+                    <%end%>
                 </li>
                 
             </ul>

@@ -14,3 +14,7 @@ categories = ["Animais e acessórios", "Esportes", "Para a sua casa",
 categories.each do |category|
     Category.find_or_create_by(description: category)
 end
+
+#################E
+
+Admin.create!(email: "admin@admin.com", password: "190195", password_confirmation: "190195")

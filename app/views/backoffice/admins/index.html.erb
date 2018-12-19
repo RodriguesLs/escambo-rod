@@ -1,0 +1,56 @@
+<h1 class="page-header">Admins</h1>
+  <!-- /.row -->
+<div class="row">
+  <div class="col-lg-10">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              Listing Admins
+                <%= link_to new_backoffice_admin_path, 
+                  class: "btn btn-success btn-circle pull-right", style: "margin-top: -5px" do%>
+                    <i class="fa fa-plus"></i>
+                <%end%>
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+              <div class="table-responsive">
+                  <table class="table table-striped table-bordered table-hover">
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>E-mail</th>
+                              <th></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <% @admins.each do |admin| %>
+                          <tr>
+                              <td><%= admin.id %></td>
+                              <td><%= admin.email%></td>
+                              <td width="85px">
+                                  
+                                  <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do%>
+                                    <i class="fa fa-list"></i>
+                                  <%end%>
+                                  
+                                  <% if current_admin.id != admin.id %>
+                                    <%= link_to backoffice_admin_path(admin), method: :delete, 
+                                      class: "btn btn-danger btn-circle", data: {confirm: "Really destroy (#{admin.email})?"} do %>
+                                        <i class="fa fa-times"></i>
+                                    <% end %>
+                                  <%else %>
+                                    <button type="button" class="btn btn-danger btn-circle" disabled="disabled">
+                                      <i class="fa fa-times"></i>
+                                    </button>
+                                  <%end%>
+                              </td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                  </table>
+              </div>
+              <!-- /.table-responsive -->
+          </div>
+        <!-- /.panel-body -->
+    </div>
+  <!-- /.panel -->
+</div>

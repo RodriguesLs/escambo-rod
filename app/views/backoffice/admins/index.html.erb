@@ -19,6 +19,7 @@
                               <th>#</th>
                               <th>Name</th>
                               <th>Email</th>
+                              <th>Tipo de Acesso</th>
                               <th></th>
                           </tr>
                       </thead>
@@ -28,21 +29,22 @@
                               <td><%= admin.id %></td>
                               <td><%= admin.name %></td>
                               <td><%= admin.email%></td>
+                              <td><%= admin.role_i18n%></td>
                               <td width="85px">
                                   
                                   <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do%>
                                     <i class="fa fa-list"></i>
                                   <%end%>
                                   
-                                  <% if current_admin.id != admin.id %>
-                                    <%= link_to backoffice_admin_path(admin), method: :delete, 
-                                      class: "btn btn-danger btn-circle", data: {confirm: "Really destroy (#{admin.email})?"} do %>
-                                        <i class="fa fa-times"></i>
-                                    <% end %>
-                                  <%else %>
+                                  <% if (current_admin.id == admin.id) || policy(@admins).destroy? %>
                                     <button type="button" class="btn btn-danger btn-circle" disabled="disabled">
                                       <i class="fa fa-times"></i>
                                     </button>
+                                  <%else %>
+                                    <%= link_to backoffice_admin_path(admin), method: :delete, 
+                                      class: "btn btn-danger btn-circle", data: {confirm: "Really destroy (#{admin.email})?"} do %>
+                                        <i class="fa fa-times"></i>
+                                    <% end %>                                    
                                   <%end%>
                               </td>
                           </tr>

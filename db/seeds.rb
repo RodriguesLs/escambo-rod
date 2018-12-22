@@ -17,4 +17,4 @@ end
 
 #################E
 
-Admin.create!(email: "admin@admin.com", password: "190195", password_confirmation: "190195")
+Admin.create!(name: "Eu eu mesmo e Irene", role: 0, email: "admin@admin.com", password: "190195", password_confirmation: "190195")

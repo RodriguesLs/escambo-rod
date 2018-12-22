@@ -1,0 +1,5 @@
+$(function(){
+    $('#recipient-name').val('<%= @admin.email %>');
+    $('h4.modal-title').text('Send email to <%= @admin.name %>');
+    $('#sendMailModal').modal();
+});

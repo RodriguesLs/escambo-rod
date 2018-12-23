@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'paperclip'
 gem 'money-rails'
 gem 'faker'
 gem 'lerolero_generator'

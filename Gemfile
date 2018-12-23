@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'money-rails'
 gem 'faker'
 gem 'lerolero_generator'
 gem 'mailcatcher'

@@ -71,6 +71,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.9.1)
     execjs (2.7.0)
+    faker (1.9.1)
+      i18n (>= 0.7)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
@@ -88,6 +90,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.6)
+    lerolero_generator (1.0.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -222,9 +225,11 @@ DEPENDENCIES
   devise
   devise-i18n
   enum_help
+  faker
   foreman
   jbuilder (~> 2.0)
   jquery-rails
+  lerolero_generator
   mailcatcher
   pundit
   rails (= 4.2.5)

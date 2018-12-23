@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+
+
+gem 'faker'
+gem 'lerolero_generator'
 gem 'mailcatcher'
 gem 'actionmailer'
 gem 'enum_help'

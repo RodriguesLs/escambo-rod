@@ -1,4 +1,5 @@
 class Backoffice::SendMailController < ApplicationController
+   
     def edit
        @admin = Admin.find(params[:id]) 
     end
@@ -16,9 +17,9 @@ class Backoffice::SendMailController < ApplicationController
     @notify_flag = "error"
     end
     # Método padrão de recebimento, mas é bom constar.
-        respond_to do |format|
-            format.js
-        end
+    respond_to do |format|
+        format.js
     end
-
+    
+    end
 end

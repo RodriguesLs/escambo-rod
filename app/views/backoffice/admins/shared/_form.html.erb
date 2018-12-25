@@ -1,9 +1,5 @@
 <h1 class="page-header">Admin</h1>
-<% if @admin.errors.any? %>
-  <% @admin.errors.full_messages.each do |message| %>
-      <script> $.notify("<%= message %>", "error")</script>
-  <%end%>
-<%end%>
+<%= render partial: "shared/errors", locals: { obj: @admin} %>
  <!-- /.row -->
 <div class="row">
   <div class="col-lg-10">

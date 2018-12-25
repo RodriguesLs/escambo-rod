@@ -11,9 +11,9 @@ namespace :dev do
       %x(rake db:create)
       %x(rake db:migrate)
       %x(rake db:seed)
-      %x(rake utils:generate_admins)
-      %x(rake utils:generate_members)
-      %x(rake utils:generate_ads)
+      %x(rake dev:generate_admins)
+      %x(rake dev:generate_members)
+      %x(rake dev:generate_ads)
     p "Setups executados"
   
   end

@@ -1,0 +1,62 @@
+<%= render partial: "shared/errors", locals: {obj: @ad} %>
+<%= form_for([:site, :profile, @ad], html: { multipart: true}) do |f| %>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class:"form-control"%>
+      </div>
+    </div>  
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="form-group">
+        <%= f.label :category %>
+        <%= f.collection_select :category_id, Category.all, :id, :description, {}, {class:"form-control"}%>
+      </div>  
+    </div>
+  </div> 
+  
+ <div class="row">
+  <div class="col-xs-2">
+    <div class="form-group">
+      <%= f.label :price %>
+      <div class="input-group">
+        <div class="input-group-addon">R$</div>
+        <%= f.text_field :price, class: "form-control"%>
+      </div>
+    </div>  
+  </div>
+ </div> 
+
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= f.label :picture %>
+        <% if @ad.picture.present?%>
+            <div>
+              <%= image_tag @ad.picture(:medium), class: "img-thumbnail"%>
+            </div><br>
+        <%end%>
+        <%= f.file_field :picture%>
+      </div>  
+    </div>
+  </div> 
+  
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control", rows:"10" %>
+      </div>  
+    </div>
+  </div>
+  
+  
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <%= submit_tag "Create", class: "btn btn-primary"%>
+<%end%>

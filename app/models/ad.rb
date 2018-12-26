@@ -3,7 +3,7 @@ class Ad < ActiveRecord::Base
   belongs_to :category
   
   #Validates
-  validates_presence_of :title, :description, :price, :category
+  validates_presence_of :title, :description, :price, :category, :finish_date
   
   scope :descending_order, -> (quantity = 6) {limit(quantity).order(created_at: :desc)}
   

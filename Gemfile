@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'redcarpet'
 gem 'paperclip'
 gem 'money-rails'
 gem 'faker'
@@ -55,6 +56,8 @@ group :development, :test do
 end
 
 group :development do
+  
+  gem 'doctor_ipsum'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

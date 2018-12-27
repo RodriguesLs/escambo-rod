@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   namespace :site do
     get 'home', to: 'home#index'
+    resources :ad_details, only: [:show]
+    
     namespace :profile do
       resources :dashboard, only: [:index]
       resources :ads, except: [:destroy]

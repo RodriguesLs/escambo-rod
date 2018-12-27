@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require notifyjs
+
+$(document).ready(function() {
+  $(document)
+    .ajaxStart(function(){
+	     $('#global-spin').fadeIn('slow');
+    })
+    .ajaxStart(function(){
+	     $('#global-spin').fadeOut('slow');	
+    });
+});

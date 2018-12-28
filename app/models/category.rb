@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-    validates_presence_of :description
+    validates :description, presence: true
 end

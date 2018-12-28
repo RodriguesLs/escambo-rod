@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require notifyjs
 
+
 $(document).ready(function() {
   $(document)
     .ajaxStart(function(){

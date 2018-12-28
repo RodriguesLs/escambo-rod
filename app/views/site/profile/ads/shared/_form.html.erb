@@ -56,8 +56,8 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, class: "form-control", rows:"10" %>
+        <%= f.label :description_short %>
+        <%= f.text_area :description_short, class: "form-control", rows:"5" %>
       </div>  
     </div>
   </div>
@@ -65,20 +65,10 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="form-group">
-        <div class="panel panel-primary">
-        <div class="panel-heading">
-          Pré-Visualização
-        </div>
-        <div class="panel-body">
-          <%= md_to_html @ad.description %>
-        </div>
+        <%= f.label :description_md %>
+        <%= f.text_area :description_md, class: "form-control", rows:"10", data: {provide: 'markdown'} %>
       </div>  
     </div>
   </div>
-  
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <%= submit_tag "Create", class: "btn btn-primary"%>
+  <%= submit_tag "Submit", class: "btn btn-primary"%>
 <%end%>

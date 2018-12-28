@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 gem 'redcarpet'
 gem 'paperclip'
 gem 'money-rails'
@@ -12,6 +11,8 @@ gem 'pundit'
 source 'https://rails-assets.org' do 
   gem 'rails-assets-notifyjs' 
   gem 'rails-assets-bootstrap', '3.3.7'
+  gem 'rails-assets-bootstrap-markdown'
+  gem 'rails-assets-marked'
 end
 gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'

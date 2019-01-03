@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+
+gem 'friendly_id' #gem usada para remover o id da Url.
 gem 'redcarpet'
 gem 'paperclip'
 gem 'money-rails'

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rails-erd'
+gem 'kaminari'
 gem 'wiselinks'
 gem 'friendly_id' #gem usada para remover o id da Url.
 gem 'redcarpet'

@@ -12,3 +12,10 @@ Third test with Rails
     sudo apt-get update
     sudo apt-get install imagemagick
 ```
+
+* Graphviz (http://www.graphviz.org) - only development enviroment 
+
+```
+    sudo apt-get update
+    sudo apt-get install graphviz
+```

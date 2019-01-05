@@ -56,6 +56,11 @@
                     <%= link_to backoffice_admins_path do%>
                         <i class="fa fa-users fa-fw"></i> Admins
                     <%end%>
+                    <% if Rails.env.development?%>
+                      <%= link_to backoffice_diagrams_path do%>
+                        <i class="fa fa-database fa-fw"></i> ER Diagram
+                      <%end%>
+                    <%end%>
                     
                 </li>
                 

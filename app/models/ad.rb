@@ -1,9 +1,12 @@
 class Ad < ActiveRecord::Base
   
+  ratyrate_rateable 'quality'
+  
   before_save :md_to_html
   
   belongs_to :member
   belongs_to :category, counter_cache: true
+  has_many :comments
   
   #Validates
   validates :title, :description_md, :description_short, :price, :category, :finish_date, presence: true
@@ -18,7 +21,7 @@ class Ad < ActiveRecord::Base
   # gem Money_rails
   monetize :price_cents
   
-  protected
+  private
   
   def md_to_html
   
@@ -40,6 +43,4 @@ class Ad < ActiveRecord::Base
 
   self.description = markdown.render(self.description_md)
   end
-  
-  
 end

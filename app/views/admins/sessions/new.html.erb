@@ -1,3 +1,4 @@
+<%= render partial: 'shared/errors', locals: { obj: resource}%>
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -31,7 +32,7 @@
 </div>
 
 <% flash.each do |key, value| %>
-  <script>
-    $.notify("<%= value%>", "info")
-  </script>
-<%end%>
+    <script>
+        $.notify("<%= value %>", "info")
+    </script>
+<%end%>>

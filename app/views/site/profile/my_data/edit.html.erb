@@ -1,0 +1,32 @@
+<%= render partial: "shared/errors", locals: {obj: @profile_member} %>
+
+<%= form_for(@profile_member, url: site_profile_my_datum_path(@profile_member)) do |f| %>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class:"form-control"%>
+      </div>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= f.label :second_name %>
+        <%= f.text_field :second_name, class:"form-control"%>
+      </div>
+    </div>  
+  </div>
+  
+ 
+ <div class="row">
+  <div class="col-xs-2">
+    <div class="form-group">
+      <%= f.label :birthdate_date %>
+        <%= f.date_field :birthdate, class: "form-control"%>
+    </div>  
+  </div>
+ </div> 
+  
+  <%= submit_tag "Submit", class: "btn btn-primary"%>
+<%end%>

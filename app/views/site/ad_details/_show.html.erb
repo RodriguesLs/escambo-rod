@@ -1,30 +1,48 @@
-  <div class="card mt-4">
+<div class="panel panel-default">
+  <div class="panel-body">
     <%= image_tag @ad.picture(:large), class: "card-img-top img-fluid"%>
     <div class="card-body">
       <h3 class="card-title"><%= @ad.title %></h3>
       <h4><%= humanized_money_with_symbol @ad.price%></h4>
-      <p class="card-text"><%= @ad.description_short %></p>
-      <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-      4.0 stars
+      <div>
+        <p class="card-text"><%= @ad.description.html_safe %></p>
+      </div>
     </div>
   </div>
-  <!-- /.card -->
+</div>
 
-  <div class="card card-outline-secondary my-4">
-    <div class="card-header">
-      Product Reviews
-    </div>
-    <div class="card-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-      <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-      <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-      <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-      <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-      <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-      <hr>
-      <a href="#" class="btn btn-success">Leave a Review</a>
-    </div>
+<div class="well well-sm">
+  <div class="ratings">
+    <p class="pull-right"><%= @ad.rates("quality").count %> reviews</p>
+    <%= rating_for @ad, 'quality' %>
   </div>
-  <!-- /.card -->
+</div>
+
+<div class="well">
+  <div class="card card-outline-secondary my-4">
+    <% if member_signed_in?%>
+      <div class="text-right">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#commentModal">
+        Comment
+        </button>    
+      </div>
+    <%else%>
+      <div class="text-right">
+        <%= link_to "Sign in to comment", new_member_session_path, class: "btn btn-success"%>    
+      </div>
+    <%end%>
+    
+    <% @ad.comments.each do |comment| %>    
+      <div class="card-body">
+        <small class="text-muted">Posted by <%= comment.member.email %> on</small>
+        <small><%= time_ago_in_words(comment.created_at)%></small>
+        <p><%= comment.body%></p>
+        <% if (current_member) && comment.member.id == current_member.id%>
+          <%= rating_for_user @ad, current_user, 'quality' %>
+        <%end%>
+      </div>
+    <br>
+    <%end%>
+  </div>
+</div>
+<%= render partial: 'site/ad_details/comment_modal'%>

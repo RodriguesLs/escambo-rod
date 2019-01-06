@@ -1,19 +1,19 @@
 namespace :dev do
   
-  
   desc "Setup development"
   task setup: :environment do
     
     images_path = Rails.root.join('public', 'system')
     p "Executando setups"
       %x(rake db:drop)
-      %x(rm -rf "#{images_path}") #Apagando pasta public/system
-      %x(rake db:create)
-      %x(rake db:migrate)
-      %x(rake db:seed)
-      %x(rake dev:generate_admins)
-      %x(rake dev:generate_members)
-      %x(rake dev:generate_ads)
+    p %x(rm -rf "#{images_path}") #Apagando pasta public/system
+    p %x(rake db:create)
+    p %x(rake db:migrate)
+    p %x(rake db:seed)
+    p %x(rake dev:generate_admins)
+    p %x(rake dev:generate_members)
+    p %x(rake dev:generate_ads)
+    p %x(rake dev:generate_comments)
     p "Setups executados"
   
   end
@@ -41,11 +41,17 @@ namespace :dev do
     p "Cadastrando Membros..."
 
     100.times do
-      Member.create!(
+      member = Member.new(
         email: Faker::Internet.email,
         password: "123456",
         password_confirmation: "123456"
       )
+      
+      member.build_profile_member
+      member.profile_member.first_name = Faker::Name.first_name
+      member.profile_member.second_name = Faker::Name.last_name
+      member.save!
+      
     end
 
     p "Members cadastrados com sucesso!"
@@ -84,8 +90,23 @@ namespace :dev do
     end
     p "ANÚNCIOS cadastrados com sucesso!"
   end
-
+  
   def markdown_fake
     %x(ruby -e "require 'doctor_ipsum'; puts DoctorIpsum::Markdown.entry")
+  end
+  
+  desc "Cria comentários Fake"
+  task generate_comments: :environment do
+    p "Cadastrando comentários..."
+
+    Ad.all.each do |ad|
+      (Random.rand(3)).times do
+        Comment.create!(
+          body: Faker::Lorem.paragraph([1,2,3].sample),
+          member: Member.all.sample,
+          ad: ad
+          )
+      end
+    end
   end
 end

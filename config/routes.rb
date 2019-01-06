@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   get 'backoffice', to: 'backoffice/dashboard#index'
   
   namespace :backoffice do
@@ -16,14 +17,17 @@ Rails.application.routes.draw do
     get 'search', to: 'search#ads'
     resources :ad_details, only: [:show]
     resources :categories, only: [:show]
+    resources :comments, only: [:create]
+    
     namespace :profile do
       resources :dashboard, only: [:index]
       resources :ads, except: [:destroy]
+      resources :my_data, only: [:edit, :update]
     end
   end
   
   devise_for :admins, :skip => [:registration]
-  devise_for :members, controllers: { sessions: 'members/sessions' }
+  devise_for :members, controllers: { sessions: 'members/sessions', registrations: 'members/registrations' }
   root 'site/home#index'
   
   # The priority is based upon order of creation: first created -> highest priority.

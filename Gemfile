@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'ratyrate'
 gem 'rails-erd'
 gem 'kaminari'
 gem 'wiselinks'

@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 set :application, "escamborod"
-set :repo_url, "git@github.com:RodriguesLs/escambo-rod.git"
+set :repo_url, "https://github.com/RodriguesLs/escambo-rod.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -25,7 +25,7 @@ set :log_level, :debug
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml"
+append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"

@@ -6,7 +6,11 @@ namespace :dev do
     images_path = Rails.root.join('public', 'system')
     p "Executando setups"
       %x(rake db:drop)
-    p %x(rm -rf "#{images_path}") #Apagando pasta public/system
+    
+    if Rails.env.development?
+      p %x(rm -rf "#{images_path}") #Apagando pasta public/system
+    end
+    
     p %x(rake db:create)
     p %x(rake db:migrate)
     p %x(rake db:seed)

@@ -39,9 +39,9 @@
         <div class="row">
             <%= render partial: 'layouts/site_shared/sidebar'%>
             <div id="home-detail" class="col-md-9">
-                <#% if controller_path == 'site/home'%>
+                <% if controller_path == 'site/home'%>
                   <%= render partial: 'layouts/site_shared/carousel'%>            
-                <#%end%>
+                <%end%>
                 <div class="row">
                     <%= yield %>
                 </div>
@@ -53,7 +53,7 @@
     <%= render partial: "layouts/site_shared/footer"%>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'site'%>
-    <#%= render partial: 'shared/notifications'%>
+    <%= render partial: 'shared/notifications'%>
     
   </body>
 </html>

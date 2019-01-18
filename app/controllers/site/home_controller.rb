@@ -3,11 +3,7 @@ class Site::HomeController < SiteController
     
     @categories = Category.order(:description)
     @ads = Ad.descending_order().page(params[:page]).per(6)
+    @carousel = Ad.random(3)
     
-    if Rails.env.production?  
-      @carousel = Ad.limit(3).order("RAND()")
-    else
-      @carousel = Ad.limit(3).order("RANDOM()")
-    end
   end
 end

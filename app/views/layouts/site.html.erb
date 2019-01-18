@@ -6,8 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Escambo - Rod</title>
-      <%= stylesheet_link_tag    'application', media: 'all'%>
-      <%= stylesheet_link_tag    'site', media: 'all'%>
+      <%= stylesheet_link_tag 'application', media: 'all'%>
+      <%= stylesheet_link_tag 'site', media: 'all'%>
       <%= csrf_meta_tags %>
   </head>
   <body>
@@ -39,7 +39,6 @@
         <div class="row">
             <%= render partial: 'layouts/site_shared/sidebar'%>
             <div id="home-detail" class="col-md-9">
-                
                 <% if controller_path == 'site/home'%>
                   <%= render partial: 'layouts/site_shared/carousel'%>            
                 <%end%>

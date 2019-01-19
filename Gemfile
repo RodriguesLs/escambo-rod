@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'nodejs-rails'
 gem 'doctor_ipsum'
 gem 'ratyrate'
 gem 'rails-erd'

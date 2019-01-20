@@ -68,7 +68,7 @@ namespace :dev do
     5.times do
       Ad.create!(
         title: Faker::Lorem.sentence([2,3,4,5].sample),
-        description_md: markdown_fake,
+        description_md: Faker::Lorem.sentence(5),
         description_short: Faker::Lorem.sentence([3,4,5].sample),
         member: Member.first,
         category: Category.all.sample,

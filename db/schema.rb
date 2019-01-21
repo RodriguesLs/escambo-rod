@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20190106143849) do
     t.integer  "picture_file_size",    limit: 8
     t.datetime "picture_updated_at"
     t.date     "finish_date"
-    t.string   "description_md"
+    t.text   "description_md"
     t.string   "description_short"
   end
 

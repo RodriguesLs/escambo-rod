@@ -96,7 +96,7 @@ namespace :dev do
   end
   
   def markdown_fake
-    %x(ruby -e "puts DoctorIpsum::Markdown.entry")
+    %x(ruby -e "require 'doctor_ipsum'; puts DoctorIpsum::Markdown.entry")
   end
   
   desc "Cria comentários Fake"

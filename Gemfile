@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem "chartkick"
 gem "pagseguro-oficial", "~> 2.5.0"
 gem 'nodejs-rails'
 gem 'doctor_ipsum'

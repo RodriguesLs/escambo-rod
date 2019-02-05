@@ -8,6 +8,15 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  
+  #Config CORS
+    config.middlware.insert_before 0, "Rack::Cors" do
+      allow do 
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+    
 
 
   $stdout.sync = true

@@ -1,5 +1,8 @@
 class Ad < ActiveRecord::Base
   
+  
+  enum status: [:active, :processing, :sold]
+  
   ratyrate_rateable 'quality'
   
   before_save :md_to_html

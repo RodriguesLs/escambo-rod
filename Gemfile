@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem "pagseguro-oficial", "~> 2.5.0"
 gem 'nodejs-rails'
 gem 'doctor_ipsum'
 gem 'ratyrate'
@@ -62,6 +64,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rails-erd'
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 group :development do

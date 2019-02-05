@@ -1,11 +1,10 @@
 <% if notice %>
-      <script>
-        $.notify("<%= notice%>", { className: 'success', globalPosition: 'top-center' });
-      </script>
+  <script defer>
+    $.notify("<%= notice %>", { className: 'success', globalPosition: 'top-center' });
+  </script>
 <%end%>
 <% if alert %>
-      <script>
-        $.notify("<%= alert%>", "error");
-      </script>
+  <scrip defer>
+    $.notify("<%= alert %>", "error")
+  </script>
 <%end%>
-    

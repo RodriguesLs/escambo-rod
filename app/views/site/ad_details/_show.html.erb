@@ -4,6 +4,24 @@
     <div class="card-body">
       <h3 class="card-title"><%= @ad.title %></h3>
       <h4><%= humanized_money_with_symbol @ad.price%></h4>
+      
+      <% if @ad.active?%>
+          <% if member_signed_in?%>
+            <div class="text-right">
+              <%= form_tag(checkout_payments_path) do%>
+                <%= hidden_field_tag :ad_id, @ad.id %>
+                <%= submit_tag "Buy", class: "btn btn-success", data: {confirm: "Do you sure buy this item?"}%>
+              <%end%>
+            </div>
+          <%else%>
+            <div class="text-right">
+              <%= link_to "Sign in to buy", new_member_session_path, class: "btn btn-success"%>    
+            </div>
+          <%end%>
+      <% else %>
+        <%= link_to "#{@ad.status}", '', class: "btn btn-success", disabled: true%>
+      <% end %>
+    
       <div>
         <p class="card-text"><%= @ad.description.html_safe %></p>
       </div>
